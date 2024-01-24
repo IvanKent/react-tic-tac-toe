@@ -1,5 +1,5 @@
-export default function Square({squares = 0, handleClick}) {
+export default function Square({value = 0, handleClick}) {
     return (
-        <button onClick={handleClick}>{squares}</button>
+        <button onClick={handleClick}>{value}</button>
     )
 }
