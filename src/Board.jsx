@@ -2,12 +2,16 @@ import './tiktactoe.css'
 import Square from './Square'
 import { useState } from 'react'
 export default function Button() {
+    const [xIsNext, setXIsNext] = useState(true)
     const [squares, setSquares] = useState(Array(9).fill(null))
 
     const handleClick = (i) => {
+        if(squares[i]){
+            return;
+        }
         const nextSquares = squares.slice();
-        nextSquares[i] = "X";
-        console.log(`${i}: ${nextSquares[i]}`)
+        xIsNext ? nextSquares[i] = 'X' : nextSquares[i] = 'O';
+        setXIsNext(!xIsNext)
         setSquares(nextSquares)
     }
     return (
