@@ -1,21 +1,22 @@
 import './tiktactoe.css'
+import Square from './Square'
 export default function Button() {
     return (
         <div className="boxContainer">
             <div className="boxRowContainer">
-                <button>X</button>
-                <button>X</button>
-                <button>X</button>
+                <Square/>
+                <Square/>
+                <Square/>
             </div>
             <div className="boxRowContainer">
-                <button>X</button>
-                <button>X</button>
-                <button>X</button>
+                <Square/>
+                <Square/>
+                <Square/>
             </div>
             <div className="boxRowContainer">
-                <button>X</button>
-                <button>X</button>
-                <button>X</button>
+                <Square/>
+                <Square/>
+                <Square/>
             </div>
         </div>
     )

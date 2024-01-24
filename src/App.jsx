@@ -1,9 +1,9 @@
 import './App.css'
-import Button from './Button'
+import Board from './Board'
 function App() {
   return (
     <div>
-      <Button/>
+      <Board/>
     </div>
   )
 }
