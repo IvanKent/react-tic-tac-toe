@@ -31,7 +31,7 @@ export default function Board({xIsNext, squares, handlePlay}) {
     }
 
     const handleClick = (i) => {
-        if(squares[i] || calculateWinner(squares)){
+        if(squares[i]){
             return;
         }
         const nextSquares = squares.slice();
@@ -40,9 +40,6 @@ export default function Board({xIsNext, squares, handlePlay}) {
     }
     return (
         <div className="boxContainer">
-            <div>
-                {status}
-            </div>
             <div className="boxRowContainer">
                 <Square value={squares[0]} handleClick={() => (handleClick(0))}/>
                 <Square value={squares[1]} handleClick={() => (handleClick(1))}/>
