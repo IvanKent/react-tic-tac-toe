@@ -1,6 +1,8 @@
 import './tiktactoe.css'
 import Square from './Square'
 import { useState } from 'react'
+
+// helper function
 function calculateWinner(squares) {
     const lines = [
       [0, 1, 2],
@@ -20,8 +22,19 @@ function calculateWinner(squares) {
     }
     return null;
   }
+  // ---------------------------------------------------------------
 
-export default function Board({xIsNext, squares, handlePlay}) {
+export default function Board({xIsNext, squares, onPlay}) {
+    const handleClick = (i) => {
+        if(calculateWinner(squares) || squares[i]){
+            return;
+        }
+        const nextSquares = squares.slice();
+        xIsNext ? nextSquares[i] = 'X' : nextSquares[i] = 'O';
+        console.log(nextSquares)
+        onPlay(nextSquares)
+    }
+
     const winner = calculateWinner(squares);
     let status;
     if(winner){
@@ -29,17 +42,9 @@ export default function Board({xIsNext, squares, handlePlay}) {
     }else{
         status = `Next Player is: ` + (xIsNext ? 'X' : 'O')
     }
-
-    const handleClick = (i) => {
-        if(squares[i]){
-            return;
-        }
-        const nextSquares = squares.slice();
-        xIsNext ? nextSquares[i] = 'X' : nextSquares[i] = 'O';
-        handlePlay(nextSquares)
-    }
     return (
         <div className="boxContainer">
+            <div className="status">{status}</div>
             <div className="boxRowContainer">
                 <Square value={squares[0]} handleClick={() => (handleClick(0))}/>
                 <Square value={squares[1]} handleClick={() => (handleClick(1))}/>
