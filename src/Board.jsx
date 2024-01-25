@@ -21,7 +21,7 @@ function calculateWinner(squares) {
     return null;
   }
 
-export default function Board({xIsNext, squares, onPlay}) {
+export default function Board({xIsNext, squares, handlePlay}) {
     const winner = calculateWinner(squares);
     let status;
     if(winner){
@@ -36,7 +36,7 @@ export default function Board({xIsNext, squares, onPlay}) {
         }
         const nextSquares = squares.slice();
         xIsNext ? nextSquares[i] = 'X' : nextSquares[i] = 'O';
-        onPlay(nextSquares)
+        handlePlay(nextSquares)
     }
     return (
         <div className="boxContainer">

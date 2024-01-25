@@ -1,5 +1,6 @@
-export default function Square({value = 0, handleClick}) {
+import './tiktactoe.css'
+export default function Square({value, handleClick}) {
     return (
-        <button onClick={handleClick}>{value}</button>
+        <button className="squareButton" onClick={handleClick}>{value}</button>
     )
 }

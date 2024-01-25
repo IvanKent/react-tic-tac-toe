@@ -5,7 +5,19 @@
 .boxRowContainer{
     display: flex;
 }
-button{
+
+.gameContainer{
+    display: flex;
+    flex-direction: row;
+}
+
+.historyButton{
+    min-width: 1px;
+    min-height: 1px;
+    font-size: 20px;
+}
+
+.squareButton{
     border: solid 1px black;
     width: 100px;
     height: 100px;
